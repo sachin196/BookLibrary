@@ -1,0 +1,34 @@
+
+<div>
+            {{# flashMessages}}
+                    <ul class="success">
+                        <li>{{this}}</li>
+                    </ul>
+                    {{/flashMessages}}
+        </div> 
+   {{!-- <h>Genre</h>
+    <div>
+      <ol>
+          {{# each genres}}
+            <li>{{this.name}}</li>
+          {{/each}} 
+      </ol> 
+    </div>
+{{/if}} --}}
+
+
+<div >
+        <caption><h1>Update Genre</h1></caption>
+       <table>
+           <tbody>
+                <form action="/genre/update/{{genres._id}}/" method="post">
+                 
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value={{genres.name}} class="form-control" >
+
+                <button type="submit" class = "button"><i class="fa fa-plus" aria-hidden="true"></i> Update</button>
+                <a id="button" class="button" href="javascript:history.back()"><i class="fa fa-arrow-left"></i> Go Back</a>
+                </form>
+           </tbody>
+       </table>
+</div>

@@ -1,0 +1,39 @@
+<div id="update_form">
+        <caption><h1>Update Books</h1></caption>
+       <table>
+           <tbody>
+                <form action="/book/update/{{book._id}}/" method="post"  enctype="multipart/form-data" id="uploadForm">
+               
+                <input type="file" name="{{book.name}}" accept="image/*">Upload Book Image <br>
+                 
+                <label >Name</label>
+                    <div>
+                        <input type="text" name="name" value="{{book.name}}" >
+                    </div>
+                <label >Description</label>
+                    <div>
+                        <input type="text" name="description" value="{{book.description}}" >
+                    </div>
+                <label >Author</label>
+                    <div>
+                        <input type="text" name="author" value="{{book.author}}" >
+                    </div>
+                <label>Genre</label>
+                 <div class="checkbox">
+                    {{#each genres}}
+                        <label><input type="checkbox" name='genre' id={{this._id}} value={{this._id}} {{inGenre this._id }} {{bindAttr checked="isChecked"}}>
+                                    {{this.name}} 
+                        </label>
+                    {{/each}}
+               
+                 </div>
+                <div id="updategenre">
+                    <button type="submit" class = "button"><i class="fa fa-plus" aria-hidden="true"></i> Update</button>
+                    <a id="button" class="button" href="javascript:history.back()"><i class="fa fa-arrow-left"></i> Go Back</a>
+                </div>
+                </form>
+           </tbody>
+       </table>
+</div>
+
+

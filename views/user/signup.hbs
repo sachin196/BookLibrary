@@ -1,0 +1,39 @@
+
+
+<body>
+    <div class = "row  login" > 
+        <div  align="center" >
+            
+                    {{#if hasErrors}}
+                    <div class="errors">
+                        {{# each messages }}
+                         <strong> {{this}}</strong>
+                        {{/each}}
+                    </div>
+                    {{/if}}
+                    <fieldset id="signup">
+                            <form action="/user/signup" method="post" onsubmit="return checkCheckBox(this)" id="sign-Form">
+                            <caption><h1>Signup page</h1></caption>
+                            <div class="container">
+
+                                <label ><b>Username</b></label> <br>
+                                <input type="text" placeholder="Enter Username" name="email" >
+                                <br>
+                                <label ><b>Password</b></label> <br>
+                                <input type="password" placeholder="Enter Password" name="password" >
+                                <input type="hidden" name="_csrf" value="{{ csrfToken }}"><br>
+                                {{!-- <div>
+                                    <textarea name="message" rows="4" cols="27" value="" readonly>
+                                        By submitting, I agree that all info entered was done accurately & truthfully.
+                                    </textarea>
+                                </div> --}}
+                                <input type="checkbox" value="0" name="agree"> yes , I accept <br><br>
+                                 <div >
+                                    <button type="submit" value="Upload Image" class = "button"> Sign Up </button>
+                                    <input type="button" class = "button" value="Exit" onclick="document.location.href='/'">
+                                </div> 
+                        </form>
+                    </fieldset>
+        </div> 
+        </div>
+</body>

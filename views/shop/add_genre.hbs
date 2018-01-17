@@ -1,0 +1,36 @@
+
+<div>
+            {{# flashMessages}}
+                    <ul class="error">
+                        <li>{{this}}</li>
+                    </ul>
+                    {{/flashMessages}}
+        </div> 
+
+<caption><h1> Add Genre</h1></caption>
+    {{!-- <table>
+        <tbody> --}}
+            <form action="/genre/add" method="post" onsubmit="return checkCheckBox(this)" id="sign-Form">
+                 <div class="container">
+                    <div >
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" >
+                    </div>
+                </div>
+                <div>
+                    <br>
+                    <b>By submitting, I agree that all info entered was done accurately & truthfully.</b><br />
+                      <input type="checkbox" value="0" name="agree"> yes, I accept
+                    <input type="submit" class = "button" value="Add Genre">
+                    <input type="button" class = "button" value="Exit" onclick="document.location.href='/'">
+                    {{!-- <button type="submit" name="submit"class = "button"><i class="fa fa-plus" aria-hidden="true"></i> Add Book</button> --}}
+                    <button class="button" type="reset" value="Reset">Clear</button>
+                </div>
+                {{!-- <button type="submit" class = "button"><i class="fa fa-plus" aria-hidden="true"></i> Add Genre</button> --}}
+                {{!-- <button class="button" type="reset" value="Reset">Clear</button> --}}
+            </form>
+        {{!-- </tbody>
+    </table> --}}
+</div>
+
+ 

@@ -1,0 +1,14 @@
+<form action="/user/profile" method="post" enctype="multipart/form-data" id="uploadForm">
+ <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+  <input type="file" name="pic" accept="image/*">
+  <input type="submit" value="Submit">
+</form>
+
+{{!-- 
+<form action="/user/profile" method="post" enctype="multipart/form-data"> 
+     <input type="hidden" name="_csrf" value="{{ csrfToken }}"><br>
+    <input type="file" name ="file" accept="application/x-zip-compressed,image/*"> 
+
+    <input type="submit" value="Upload selected file to server"> 
+
+</form> --}}

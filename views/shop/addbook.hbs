@@ -1,0 +1,75 @@
+<body>
+<div class="errors">
+    {{# each flashMessages}}
+    <ul>
+        <li>
+            {{this}}
+        </li>
+    </ul>
+    {{/each}}
+</div>
+
+
+
+    <caption><h1> Add Books</h1></caption>
+       {{!-- <table>
+           <tbody> --}}
+                <form action="/book/add" method="post" enctype="multipart/form-data" onsubmit="return checkCheckBox(this)" id="sign-Form">
+                <label >Image</label>
+                <input type="file" id="imagePath" value="imagePath" name="imagePath"  data-rule-required="false"><br>
+
+                <label >Name</label>
+                <input type="text" id="name" name="name"  required><br>
+            
+            
+                <label >Description</label>
+                <input type="text" id="description" name="description"  required><br>
+            
+            
+                <label >Author</label>
+                <input type="text" id="author" name="author"  required><br>
+            
+            
+                <label >Price &#x20B9;</label>
+                <input type="text" id="price" name="price"  ><br>
+            
+                <div>
+                    <label>Genre</label>
+                    <div class="checkbox" >
+                        {{# each genres}}
+                    <label><input type="checkbox" name='genre', id={{this._id}}, value={{this._id}} ,{{bindAttr checked="isChecked"}}>
+                                {{this.name}}
+                    </label><br>
+                        {{/each}}
+                    </div>
+                </div><br>
+                <div>
+                    <b>By submitting, I agree that all info entered was done accurately & truthfully.</b><br />
+                     <input type="checkbox" value="0" name="agree"> yes, I accept
+                    <input type="submit" class = "button" value="Add Book">
+                    <input type="button" class = "button" value="Exit" onclick="document.location.href='/'">
+                    {{!-- <button type="submit" name="submit"class = "button"><i class="fa fa-plus" aria-hidden="true"></i> Add Book</button> --}}
+                    <button class="button" type="reset" value="Reset">Clear</button>
+                </div>
+        </form>
+    </form>
+           {{!-- </tbody>
+       </table> --}}
+</body>
+
+
+
+
+{{!-- <script>
+ $(document).ready(function() {
+    $('tbody').on('click', '[name="submit"], [name="goto_pp"], [name="goto_gc"]', function() {
+      if ($('#agree').is(':checked')) {
+        $(this).submit();
+      }
+      else {
+        alert("You must agree with the terms and conditions of sales to check out.");
+        return false;
+      }
+    });
+  });
+</script> --}}

@@ -1,0 +1,26 @@
+
+<h>Books</h>
+<div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <p>Title : {{ book.name }}</p> 
+                    <p class="description">Description :  {{ book.description }}</p>
+                    <p>Author :  {{ book.author }}</p>
+                    {{# each book.genre }}
+                    <p>Genre : {{this.name}}</p>
+                    {{/each}}
+                </tr>
+             </thead>
+            <tbody>    
+                <tr>         
+               <a id="button" class="button" href="javascript:history.back()"><i class="fa fa-arrow-left"></i> Go Back</a>
+                </tr>
+            </tbody>
+        </table>       
+    </div>
+</div>
+
+
+   

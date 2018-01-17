@@ -1,0 +1,37 @@
+
+{{# if genres}} 
+ <div>
+            {{# flashMessages}}
+                    <ul class="success">
+                        <li>{{this}}</li>
+                    </ul>
+                    {{/flashMessages}}
+        </div> 
+<h>Genre</h>
+<div>
+    {{# each genres }}
+    <div>
+        <table>
+            <thead>
+                <tr>
+                  <p style="font-size:20px"> {{ this.name }}</p> 
+                </tr>
+             </thead>
+            <tbody>    
+                <tr>
+                <td> <a href="/genre/delete/{{this._id}}/" id="delete"  type="button"><i class="fa fa-trash"></i> delete</a></td>
+                <td> <a href="/genre/update/{{this._id}}"  id="update"  type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</a></td>     
+                </tr>
+            </tbody>
+        </table>       
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<div >
+        <div>
+            <h2>No Genre available</h2>
+        </div>
+    </div>
+{{/if}}
+

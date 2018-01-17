@@ -1,0 +1,62 @@
+
+{{!-- <div class="error">
+    {{# each flashMessages}}
+    <ul>
+        <li>
+            {{this}}
+        </li>
+    </ul>
+    {{/each}}
+</div> --}}
+
+
+{{# if book}} 
+ <div>
+            {{# flashMessages}}
+                    <ul class="success">
+                        <li>{{this}}</li>
+                    </ul>
+                    {{/flashMessages}}
+        </div> 
+<h>Books</h>
+<div>
+
+    {{# each book }}
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <p>Title : {{ this.name }}</p> <br>
+                   <img src="{{ this.imagePath }}" alt="..." width="200" height="200">
+                    <p class="description">Description :  {{ this.description }}</p>
+                    <p>Author :  {{ this.author }}</p>
+                    <p>Price  &#x20B9;:  {{ this.price }}</p>
+                    <p>Genre :
+                    {{# each this.genre }}
+                    <span> {{this.name}} </span>
+                    {{/each}} 
+                    </p>
+                </tr>
+             </thead>
+            <tbody>    
+                <tr>
+                {{!-- {{# if login}} --}}
+                <td> <a href="/book/delete/{{this._id}}/" id="delete" class="button" type="button"><i class="fa fa-trash"></i> delete</a></td>
+                <td> <a href="/book/update/{{this._id}}"  id="update"  type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update book</a></td>     
+                {{!-- {{ else }} --}}
+                <td> <a href="/book/show/{{this._id}}" class="button" type="button"><i class="fa fa-eye" aria-hidden="true"></i> show details</a></td>
+                {{!-- {{/if}} --}}
+                </tr>
+            </tbody>
+        </table>       
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<div >
+        <div>
+            <h2>No Books available</h2>
+        </div>
+    </div>
+{{/if}}
+

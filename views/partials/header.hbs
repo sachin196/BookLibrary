@@ -1,0 +1,22 @@
+ <div> Book Web App <hr /></div>
+<div class="navbar">
+ <a class="active" href="/"><i class="fa fa-home"></i> Home</a>
+     <a href="/book"><i class="fa fa-eye" aria-hidden="true"></i> View Book</a>
+     <a href="/genre"><i class="fa fa-eye" aria-hidden="true"></i> View Genre</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+          {{# if login }}
+              <a href="/user/profile">Profile</a>
+              <a href="/genre/add"><i class="fa fa-plus" aria-hidden="true"></i> Add Genre</a>
+              <a href="/book/add"><i class="fa fa-plus" aria-hidden="true"></i> Add Book</a>
+              <a href="/user/logout">Logout</a>
+          {{ else }}
+              <a href="/user/signup">Sign up</a>
+              <a href="/user/signin">Sign in</a>
+          {{/if}}
+    </div>
+  </div> 
+</div>
