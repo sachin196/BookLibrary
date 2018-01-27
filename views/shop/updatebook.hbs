@@ -3,8 +3,8 @@
        <table>
            <tbody>
                 <form action="/book/update/{{book._id}}/" method="post"  enctype="multipart/form-data" id="uploadForm">
-               
-                <input type="file" name="{{book.name}}" accept="image/*">Upload Book Image <br>
+                 <img src="/{{ book.imagePath }}" alt="..." width="200" height="200"><br>Change Book Image
+                <input type="file" name="imagePath" > <br>
                  
                 <label >Name</label>
                     <div>

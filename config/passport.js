@@ -32,11 +32,11 @@ passport.use('local.signup', new LocalStrategy({
             return done(err);
         }
         if(user){
-            return done(null, false, {message:'E-mail id already in use.'});
+            return done (null, false, {message:'E-mail id already in use.'});
         }
         var newUser = new User ();
             newUser.email = email;
-            newUser.password = newUser.encryptpassword(password);
+            newUser.password = password;
             newUser.save(function(err, result){
                 if(err){
                     return done(err);
@@ -70,9 +70,16 @@ passport.use('local.signin', new LocalStrategy({
         if(!user){
             return done(null, false, {message:'No such E-mail found.'});
         }
-       if(!user.validpassword(password)) {
-        return done(null, false, {message:'Incorrect Password'});
-       }
-       return done(null, user)
+    //    if(!user.comparePassword(password)) {
+    //     return done(null, false, {message:'Incorrect Password'});
+    //    }
+    //    return done(null, user)
+    user.comparePassword(password, function(err, isMatch) {
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+      })
 });
 }));

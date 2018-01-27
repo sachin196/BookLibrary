@@ -1,0 +1,22 @@
+<div align="center">
+    {{#if hasErrors}}
+        <div class="errors">
+            {{# each messages }}
+                <strong> {{this}}</strong>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>
+
+<div>
+    <fieldset>
+        <form action="/user/forgot" method="post">
+            <h1>Forgot Password</h1>
+            Email:<br>
+            <input type="text" name="email" autofocus required>
+            <br>
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <input type="submit" class=" primary"value="Reset Password">
+        </form>
+    </fieldset>
+</div>

@@ -15,14 +15,14 @@ router.get('/', (req, res, next) => {
     }
     const genres = Genre.find({}).then((genres) => {
         console.log(genres);
-        res.render('shop/genre', { genres: genres ,flashMessages:flashMessages});
+        res.render('shop/genre', { genres: genres ,flashMessages:flashMessages,user:req.user});
     }, (err) => {
       throw err
     })
   });
 
 router.get('/add', (req, res , next) => {
-    res.render('shop/add_genre');
+    res.render('shop/add_genre',{user:req.user});
 });
 
 router.post('/add',(req, res, next) => {
@@ -56,7 +56,7 @@ router.post('/add',(req, res, next) => {
     });
 });
 
-router.get('/delete/:id/', (req, res, next) => {
+router.get('/delete/:id/', isLoggedIn, (req, res, next) => {
     console.log('hii i m here in delete book');
      Genre.findByIdAndRemove({ _id: req.params.id },(err, genre)=> {
        if(err) {
@@ -67,17 +67,17 @@ router.get('/delete/:id/', (req, res, next) => {
      })
   });
 
-router.get('/update/:id/', (req, res, next) => {
+router.get('/update/:id/',isLoggedIn, (req, res, next) => {
     console.log('hii i m here in delete book');
     const genres = Genre.findById({_id:req.params.id}).populate('genre').then((genres) => {
       console.log(genres);
-      res.render('shop/updategenre', { genres: genres });
+      res.render('shop/updategenre', { genres: genres, user:req.user });
   }, (err) => {
     throw err
   });
   });
 
-router.post('/update/:id/', (req, res, next) => {
+router.post('/update/:id/',(req, res, next) => {
     console.log('hii i m here in update book');
       Genre.findById({_id:req.params.id}, (err, genre) => {
         genre.name = req.body.name || book.name;
@@ -95,3 +95,11 @@ router.post('/update/:id/', (req, res, next) => {
 
 
 module.exports = router;
+
+function isLoggedIn(req, res, next) {
+  if(req.isAuthenticated()){
+      return next();
+  }
+  req.flash('success','You need to Login first!!!');
+  res.redirect('/genre');
+}

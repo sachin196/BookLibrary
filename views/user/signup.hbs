@@ -2,38 +2,46 @@
 
 <body>
     <div class = "row  login" > 
-        <div  align="center" >
+     
             
                     {{#if hasErrors}}
-                    <div class="errors">
+                    <div class="errors" align="center">
                         {{# each messages }}
                          <strong> {{this}}</strong>
                         {{/each}}
                     </div>
                     {{/if}}
-                    <fieldset id="signup">
+                    {{!-- <fieldset id="signup"> --}}
+                        <fieldset >
                             <form action="/user/signup" method="post" onsubmit="return checkCheckBox(this)" id="sign-Form">
                             <caption><h1>Signup page</h1></caption>
-                            <div class="container">
-
-                                <label ><b>Username</b></label> <br>
-                                <input type="text" placeholder="Enter Username" name="email" >
-                                <br>
+                            {{!-- <div class="container"> --}}
+                                <p>
+                                    <label ><b>Username</b></label><br>
+                                    <div>
+                                        <input type="text" placeholder="Enter Username" name="email" > <br>
+                                    </div>
+                                </p><br>
                                 <label ><b>Password</b></label> <br>
-                                <input type="password" placeholder="Enter Password" name="password" >
+                                <input type="password" placeholder="Enter Password" name="password" ><br>
                                 <input type="hidden" name="_csrf" value="{{ csrfToken }}"><br>
                                 {{!-- <div>
                                     <textarea name="message" rows="4" cols="27" value="" readonly>
                                         By submitting, I agree that all info entered was done accurately & truthfully.
                                     </textarea>
                                 </div> --}}
+                                <b>By submitting, I agree that all info entered was done accurately & truthfully.</b><br />
                                 <input type="checkbox" value="0" name="agree"> yes , I accept <br><br>
                                  <div >
                                     <button type="submit" value="Upload Image" class = "button"> Sign Up </button>
-                                    <input type="button" class = "button" value="Exit" onclick="document.location.href='/'">
+                                    <input type="button" class = "button" value="Exit" onclick="document.location.href='/book'">
                                 </div> 
+                                {{!-- </div> --}}
                         </form>
-                    </fieldset>
-        </div> 
+                        </fieldset>
+                    {{!-- </fieldset> --}}
+        
         </div>
 </body>
+
+

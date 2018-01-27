@@ -1,0 +1,40 @@
+{{#if books}}
+  <div style="margin-left:20px">
+    {{# each books}}
+      <table>
+          <thead>
+              <div class="grid-container">
+                  <div>
+                    <strong>Title: {{this.item.name}}</strong>
+                  </div>
+                  <div>
+                    <span class="badge1 data-badge">Qty: {{this.qty}}</span>
+                  </div>
+                  <div>
+                    <span class="badge1 data-badge">Price:&#x20B9; {{this.price}}</span> 
+                  </div> 
+                  <div>
+                    {{!-- <ul> --}}
+                      <span><a class="button" href="/book/reduce/{{this.item._id}}">Reduce by 1</a></span>
+                      <span><a class="button" href="/book/remove/{{this.item._id}}">Remove All</a></span>
+                    {{!-- </ul> --}}
+                  </div>
+              </div>
+          </thead>
+      </table>
+    {{/each}}
+  </div>
+  <div style="margin-left:20px ; margin-top:10px;" >
+      <div>
+          <strong>TotalPrice: &#x20B9; {{this.totalPrice}}</strong>
+      </div>
+      <div>
+          <a href="/checkout" class="button" style="float: none" type="button"> Checkout</a>
+      </div>
+  </div>
+{{else}}
+  <div style="margin-left:20px">
+    <p>No Items in the Cart</p>
+  </div>
+{{/if}}
+

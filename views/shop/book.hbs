@@ -11,27 +11,29 @@
 
 
 {{# if book}} 
- <div>
+ <div style="border-radius:5px">
             {{# flashMessages}}
                     <ul class="success">
                         <li>{{this}}</li>
                     </ul>
                     {{/flashMessages}}
         </div> 
-<h>Books</h>
-<div>
+<h style="margin-left:20px">Books</h>
+<div style="margin-left:20px" class="book">
 
     {{# each book }}
     <div>
         <table>
             <thead>
                 <tr>
-                    <p>Title : {{ this.name }}</p> <br>
-                   <img src="{{ this.imagePath }}" alt="..." width="200" height="200">
-                    <p class="description">Description :  {{ this.description }}</p>
-                    <p>Author :  {{ this.author }}</p>
-                    <p>Price  &#x20B9;:  {{ this.price }}</p>
-                    <p>Genre :
+                    <p><b>Title</b> : {{ this.name }}</p> <br>
+                    <a  target="_blank" href="{{ this.imagePath }}">
+                         <img src="{{ this.imagePath }}" alt="..." width="200" height="200">
+                    </a>
+                    <p class="description"><b>Description :</b>  {{ this.description }}</p>
+                    <p><b>Author :</b>  {{ this.author }}</p>
+                    <p><b>Price  &#x20B9;:</b>  {{ this.price }}</p>
+                    <p><b>Genre :</b>
                     {{# each this.genre }}
                     <span> {{this.name}} </span>
                     {{/each}} 
@@ -41,17 +43,47 @@
             <tbody>    
                 <tr>
                 {{!-- {{# if login}} --}}
-                <td> <a href="/book/delete/{{this._id}}/" id="delete" class="button" type="button"><i class="fa fa-trash"></i> delete</a></td>
-                <td> <a href="/book/update/{{this._id}}"  id="update"  type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update book</a></td>     
+                <td> <a href="/book/delete/{{this._id}}" id="delete" name="delete" class="button"  type="button"><i class="fa fa-trash"></i> delete</a></td>
+                <td> <a href="/book/update/{{this._id}}"  id="update"  type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update book</a></td>  
+                 <td> <a href="/add-to-cart/{{this._id}}" class="button" type="button"><i class="fa fa-eye" aria-hidden="true"></i>Add to Cart</a></td>   
                 {{!-- {{ else }} --}}
-                <td> <a href="/book/show/{{this._id}}" class="button" type="button"><i class="fa fa-eye" aria-hidden="true"></i> show details</a></td>
+                {{!-- <td> <a href="/book/show/{{this._id}}" class="button" type="button"><i class="fa fa-eye" aria-hidden="true"></i> show details</a></td> --}}
                 {{!-- {{/if}} --}}
                 </tr>
             </tbody>
         </table>       
     </div>
     {{/each}}
-</div>
+                {{!-- {{# if pages}}
+                    <ul class="pagination text-center">
+                        {{# if current = 1}}
+                            <li class="disabled"><a>First</a></li>
+                        {{else}}
+                            <li><a href="/book/1">First</a></li>
+                        {{/if}}
+                        
+                    {{var i = current > 5 ? current - 4 : 1)}}
+                        {{# if (i !== 1) }}
+                        <li class="disabled"><a>...</a></li>
+                        {{/if}}
+                        {{# each  (; i <= (Number(current) + 4) && i <= pages; i++)}}
+                            {{# if (i == current) }}
+                                <li class="active"><a>{{i}}</a></li>
+                                {{else}}
+                                <li><a href="/showData/<%= i %>">{{i}}</a></li>
+                            {{/if}}
+                        {{ if (i == Number(current) + 4 && i < pages)}}
+                            <li class="disabled"><a>...</a></li>
+                       {{/if}}
+                    {{/each}}
+                    {{if (current == pages)}}
+                        <li class="disabled"><a>Last</a></li>
+                    {{else}}
+                        <li><a href="/showData/<%= pages %>">Last</a></li>
+                   {{/if}}
+                </ul>
+                {{/if}}--}}
+</div>  
 {{else}}
 <div >
         <div>

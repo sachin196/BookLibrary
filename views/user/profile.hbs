@@ -5,6 +5,10 @@
         </ul>
     {{/flashMessages}}
 </div> 
+<a style="float:right " href="/user/change_password"><b>Change Password</b></a>
+{{# if user}}
+<h1> welcome {{user.email}}</h1>
+{{/if}}
 
 
-<h1>Profile</h1>
+

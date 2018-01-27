@@ -1,0 +1,36 @@
+<div>
+    <fieldset>
+        <form action="/checkout" method="post" id="checkout-form">
+            <h1>Checkout</h1>
+            <h4>Your Total: &#x20B9;{{total}}</h4>
+            <div id="charge-error" class="errors {{#if noError}}hidden{{/if}}">
+            {{errMsg}}
+            </div>
+            Name:<br>
+            <input type="text" name="name" id="naame" required>
+            <br>
+            Address:<br>
+            <input type="text" name="address"  id="address" required>
+            <br>
+            Card Holder Name:<br>
+            <input type="text"  id="card-name" required>
+            <br>
+            Credit Card Number:<br>
+            <input type="text"  id="card-number" required>
+            <br>
+            Expiration Month:<br>
+            <input type="text"   id="card-expiry-month" required>
+            <br>
+            Expiration Year:<br>
+            <input type="text"   id="card-expiry-year" required>
+            <br>
+            CVC:<br>
+            <input type="text"  id="card-cvc" required>
+            <br><br>
+            <input type="submit" class=" button"value="Buy now">
+        </form>
+    </fieldset>
+</div>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="/javascripts/checkout.js"></script>

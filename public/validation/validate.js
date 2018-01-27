@@ -1,3 +1,9 @@
+$.validator.addMethod("pwcheck", function(value) {
+    return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) // consists of only these
+        && /[a-z]/.test(value) // has a lowercase letter
+        && /\d/.test(value) // has a digit
+ });
+
 $(document).ready(function() {
     $("#sign-Form").validate({
         rules : {
@@ -6,7 +12,12 @@ $(document).ready(function() {
                 email : true
             },
             password : {
-                required : true 
+                required : true ,
+                pwcheck:true,
+                minlength: 8
+            },
+            confirm : {
+                equalTo: "#password" 
             },
             name: {
                 required: true
@@ -30,10 +41,16 @@ $(document).ready(function() {
         messages : {
             email : {
                 required: 'please enter the email address.',
-                email:'please enter a <em>valid<em> email.'
+                email:'please enter a valid email.'
             },
             password : {
-                required: 'password field cannot be blank'
+                required: 'password field cannot be blank',
+                pwcheck: "password must have a lowercase letter and a digit",
+                 minlength: "length should not be less than 8 letters!"
+            },
+            confirm: {
+                equalTo: " Enter Confirm Password Same as Password",
+                required: 'Confirm password field cannot be blank',
             },
             name : {
                 required: 'name field cannot be blank'

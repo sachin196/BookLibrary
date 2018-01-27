@@ -1,3 +1,55 @@
+
+/* .checkout {
+    -webkit-column-count: 3;
+    -webkit-column-gap: 40px; 
+} */
+/* .checkout {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #4CAF50
+} */
+.grid-container {
+    max-width: 50%;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color: rgb(129, 174, 212);
+    padding: 5px;
+  }
+
+  .grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding:5px 0;
+    font-size: 16px;
+  }
+
+fieldset {
+    width: 60%; margin-left:auto; margin-top:20px;margin-right:  auto;
+}
+
+green {
+    color: #4CAF50;
+}
+
+.badge1 {
+    position:relative;
+ }
+ .badge1[data-badge]:after {
+    content:attr(data-badge);
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    font-size:.7em;
+    background:rgb(246, 247, 246);
+    color:rgb(8, 8, 8);
+    width:18px;height:18px;
+    text-align:center;
+    line-height:18px;
+    border-radius:50%;
+    box-shadow:0 0 1px #333;
+ }
 #updategenre {
     float: left;
 }
@@ -101,6 +153,22 @@ ol li {
     float: right;
     border-radius: 5px;
 }
+.primary{
+    background-color: rgb(13, 166, 226);
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-right: 10px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    float: none;
+    border-radius: 5px;
+}
 
 th {
     padding: 10px;
@@ -115,10 +183,10 @@ th {
     align-self: center;
     align-content: center;
 }
-/* form {
-    width: 300px;
-    margin: 0 auto;
-} */
+form {
+    margin-left:  auto;margin-right:  auto;
+     padding-left: 180px;
+}
 
 /* input[type=text] {
     width: 100%;
@@ -134,7 +202,7 @@ th {
  }
 
  div {
-    border-radius: 5px;
+    border-radius: 10px;
 }
 /* #button {
     background-color: #4CAF50;
@@ -163,6 +231,7 @@ th {
 
 .success {
     background-color: rgb(134, 223, 137);
+    border-radius: 5px;
 }
 .errors {
     background-color: rgb(255, 155, 155)
@@ -174,7 +243,7 @@ th {
 }
 
 input[type=text] {
-    width: 70%;
+    width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -184,7 +253,7 @@ input[type=text] {
 }
 
 input[type=password] {
-    width: 70%;
+    width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -234,19 +303,20 @@ caption , h1 {
 }
 
 .navbar a {
-    float: left;
+    /* float: left; */
     font-size: 16px;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 17px 16px;
     text-decoration: none;
 }
 
+
+
 .dropdown {
-    float: left;
+    float: right;
     overflow: hidden;
 }
-
 .dropdown .dropbtn {
     font-size: 16px;    
     border: none;
@@ -287,15 +357,16 @@ caption , h1 {
 }
 
 #login {
-    margin-left: 300px;
+    /* margin-left: 300px; */
     margin-top: 20px;
-    margin-right: 300px;
+    /* margin-right: 300px; */
 }
 
 #signup {
-    margin-left: 300px;
+    /* margin-left: 300px; */
     margin-top: 20px;
-    margin-right: 300px
+    /* margin-right: 300px */
+    width: 100%
 }
 
 
@@ -306,4 +377,18 @@ caption , h1 {
 .error {
     color: red;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

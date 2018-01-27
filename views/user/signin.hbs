@@ -1,38 +1,32 @@
 
 <body>
-    <div class = "row  login" > 
-        <div  align="center" >
-            
-                    {{#if hasErrors}}
-                    <div class="errors">
-                        {{# each messages }}
-                         <strong> {{this}}</strong>
-                        {{/each}}
-                    </div>
-                    {{/if}}
+    <div class = "row  login" >      
+                   <div align="center">
+                        {{#if hasErrors}}
+                            <div class="errors">
+                                {{# each messages }}
+                                    <strong> {{this}}</strong>
+                                {{/each}}
+                            </div>
+                        {{/if}}
+                   </div>
                
                   
-                        <fieldset >
-                            <form action="/user/signin" method="post" id="sign-Form">
-                        <caption><h1>SignIn page</h1></caption>
-                            <div class="container1">
-                                
-                                <label class="label"><b>Username</b></label> <br>
-                                <input type="text" placeholder="Enter Username" name="email" id="email"/><br>
-                                <label class="label"><b>Password</b></label> <br>
-                                <input type="password" placeholder="Enter Password" name="password" id="password" /><br>
-                                <input type="checkbox" checked="checked" >Remember me
-                                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                                <div id="button">
-                                    <button type="submit" class = "button"> Sign In </button>
-                                </div>
-                                {{!-- <div align="center" >
-                                    <p  id="para"> Don't have account? <a href="/user/signup">Sign Up</a></p>
-                                </div> --}}
-                            </div>   
-                        </form>
-                        </fieldset>
-        </div> 
+            <fieldset  >
+                <form action="/user/signin" method="post" id="sign-Form">
+                    <caption><h1>SignIn page</h1></caption> 
+                        <label class="label"><b>Username</b></label> <br>
+                        <input type="text" placeholder="Enter Username" name="email" id="email"/><br>
+                        <label class="label"><b>Password</b></label> <br>
+                        <input type="password" placeholder="Enter Password" name="password" id="password" /><br>
+                        <input type="checkbox" checked="checked" >Remember me         <a href="/user/forgot">Forgot Password</a>
+                        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                        {{!-- {{csrfToken}} --}}
+                        <div id="button">
+                            <button type="submit" class = "button"> Sign In </button>
+                        </div>
+                </form>
+            </fieldset>
         </div>
 </body>
 

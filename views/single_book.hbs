@@ -6,6 +6,7 @@
             <thead>
                 <tr>
                     <p>Title : {{ book.name }}</p> 
+                     <img src="/{{ book.imagePath }}" alt="..." width="200" height="200">
                     <p class="description">Description :  {{ book.description }}</p>
                     <p>Author :  {{ book.author }}</p>
                     {{# each book.genre }}
