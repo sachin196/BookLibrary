@@ -167,7 +167,7 @@ router.use(csrfProtection);
         var smtpTransport = nodemailer.createTransport({
           service: 'Gmail',
           auth: {
-            user: 'sachin.yadav@infiny.in',
+            user: '',
             pass: ''
           },
           tls: {
