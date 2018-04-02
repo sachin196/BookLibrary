@@ -168,7 +168,7 @@ router.use(csrfProtection);
           service: 'Gmail',
           auth: {
             user: 'sachin.yadav@infiny.in',
-            pass: 'infiny@123'
+            pass: ''
           },
           tls: {
             rejectUnauthorized : false
